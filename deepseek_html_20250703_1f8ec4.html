@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry 4.0 Business Transformation Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #2980b9;
+            --light: #f8fafc;
+            --dark: #1a1a1a;
+            --gray: #7f8c8d;
+            --light-gray: #f1f5f9;
+            --border: #e2e8f0;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #c0392b;
+            --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a2a3a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+            background: #2980b9;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+            padding: 2.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Industry 4.0 Overview */
+        .industry-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2.2rem 1.8rem;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .tech-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .tech-card:hover .tech-icon {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .tech-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Roadmap Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e0e0e0, #e0e0e0);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2.2rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            margin: 0 2rem;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid white;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 10px solid white;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 0 8px var(--light);
+        }
+
+        .timeline-item:hover .timeline-marker {
+            background: var(--secondary);
+            color: white;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .phase-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .phase-duration {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .phase-description {
+            color: var(--gray);
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+        }
+
+        .phase-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .phase-item {
+            background: var(--light-gray);
+            padding: 1.2rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .phase-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .phase-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .phase-item h4 i {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .phase-item p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .roi-inputs {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group input {
+            padding: 0.9rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .roi-results {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .roi-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .roi-breakdown {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .roi-metric {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+
+        .roi-metric h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .roi-metric p {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Implementation Chart */
+        .implementation-chart {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow);
+            margin: 2.5rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 2rem 0;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: end;
+            height: 100%;
+            gap: 1.2rem;
+            padding: 0 1rem;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--secondary), var(--accent));
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .chart-bar:hover {
+            transform: scaleY(1.05);
+            transform-origin: bottom;
+        }
+
+        .chart-bar::after {
+            content: attr(data-value);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .chart-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .risk-item {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--danger);
+            transition: var(--transition);
+        }
+
+        .risk-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .risk-item.medium {
+            border-left-color: var(--warning);
+        }
+
+        .risk-item.low {
+            border-left-color: var(--success);
+        }
+
+        .risk-level {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .risk-item.high .risk-level {
+            color: var(--danger);
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .risk-item.medium .risk-level {
+            color: var(--warning);
+            background: rgba(243, 156, 18, 0.1);
+        }
+
+        .risk-item.low .risk-level {
+            color: var(--success);
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .risk-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .risk-item p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Success Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2.2rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .metric-value::after {
+            content: '+';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            color: var(--success);
+            font-size: 1.8rem;
+        }
+
+        .metric-label {
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-marker {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+            }
+            
+            .timeline-content::before {
+                left: -10px;
+                border-right: 10px solid white;
+                border-left: none;
+            }
+            
+            .roi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary);
+            transform-origin: 0%;
+            transform: scaleX(0);
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-industry"></i>
+                    <span>Industry 4.0 Roadmap</span>
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#overview"><i class="fas fa-layer-group"></i> Overview</a></li>
+                        <li><a href="#roadmap"><i class="fas fa-road"></i> Roadmap</a></li>
+                        <li><a href="#roi"><i class="fas fa-calculator"></i> ROI Calculator</a></li>
+                        <li><a href="#metrics"><i class="fas fa-chart-line"></i> Metrics</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Business Development Analyst Roadmap</h1>
+                <p>Strategic framework for implementing Industry 4.0 solutions in manufacturing organizations</p>
+                <a href="#overview" class="cta-button">
+                    <i class="fas fa-arrow-right"></i>
+                    Start Your Transformation
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <main class="main-content">
+        <div class="container">
+            <section id="overview" class="section">
+                <h2 class="section-title">Industry 4.0 Core Technologies</h2>
+                <div class="industry-overview">
+                    <div class="tech-card animate-in">
+                        <div class="tech-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>IoT & Smart Sensors</h3>
+                        <p>Connected devices and sensors that collect real-time data from manufacturing processes, enabling predictive maintenance and quality control.</p>
+                    </div>
+                    <div class="tech-card animate-in">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>Advanced analytics and machine learning algorithms that transform raw data into actionable insights for operational efficiency.</p>
+                    </div>
+                    <div class="tech-card animate-in">
+                        <div class="tech-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Computing</h3>
+                        <p>Scalable cloud infrastructure providing secure data storage, processing power, and accessibility from anywhere.</p>
+                    </div>
+                    <div class="tech-card animate-in">
+                        <div class="tech-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automation</h3>
+                        <p>Robotic process automation and smart manufacturing systems that reduce manual labor and improve precision.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="roadmap" class="section">
+                <h2 class="section-title">Digital Adoption Roadmap</h2>
+                <div class="timeline">
+                    <div class="timeline-item animate-in">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h3 class="phase-title"><i class="fas fa-search"></i> Assessment & Planning</h3>
+                            <p class="phase-duration">Months 1-2</p>
+                            <p class="phase-description">Evaluate current state, identify opportunities, and create a comprehensive digital transformation strategy.</p>
+                            <div class="phase-items">
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-clipboard-list"></i> Current State Analysis</h4>
+                                    <p>Audit existing systems, processes, and technologies</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-bullseye"></i> Goal Setting</h4>
+                                    <p>Define clear objectives and success metrics</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-money-bill-wave"></i> Budget Planning</h4>
+                                    <p>Establish investment requirements and ROI targets</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-in">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h3 class="phase-title"><i class="fas fa-layer-group"></i> Foundation Building</h3>
+                            <p class="phase-duration">Months 3-6</p>
+                            <p class="phase-description">Establish the basic infrastructure and connectivity required for digital transformation.</p>
+                            <div class="phase-items">
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-network-wired"></i> Network Infrastructure</h4>
+                                    <p>Upgrade internet connectivity and internal networks</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-satellite"></i> Basic IoT Implementation</h4>
+                                    <p>Install sensors on critical equipment</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-database"></i> Data Collection Setup</h4>
+                                    <p>Implement systems to capture operational data</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate-in">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h3 class="phase-title"><i class="fas fa-link"></i> System Integration</h3>
+                            <p class="phase-duration">Months 7-12</p>
+                            <p class="phase-description">Connect systems and implement core digital solutions for manufacturing operations.</p>
+                            <div class="phase-items">
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-cogs"></i> ERP Integration</h4>
+                                    <p>Connect production data with business systems</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-chart-pie"></i> Analytics Platform</h4>
+                                    <p>Deploy basic analytics and reporting tools</p>
+                                </div>
+                                <div class="phase-item">
+                                    <h4><i class="fas fa-mobile-alt"></i> Mobile Access</h4>
+                                    <p>Enable mobile monitoring and control</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="roi" class="section">
+                <div class="roi-calculator">
+                    <h2 class="section-title" style="color: white;">ROI Calculator</h2>
+                    <div class="roi-grid">
+                        <div class="roi-inputs">
+                            <div class="input-group">
+                                <label for="revenue"><i class="fas fa-dollar-sign"></i> Annual Revenue ($)</label>
+                                <input type="number" id="revenue" placeholder="1000000" value="1000000">
+                            </div>
+                            <div class="input-group">
+                                <label for="employees"><i class="fas fa-users"></i> Number of Employees</label>
+                                <input type="number" id="employees" placeholder="50" value="50">
+                            </div>
+                            <div class="input-group">
+                                <label for="investment"><i class="fas fa-money-check-alt"></i> Digital Investment ($)</label>
+                                <input type="number" id="investment" placeholder="250000" value="250000">
+                            </div>
+                            <div class="input-group">
+                                <label for="timeline"><i class="fas fa-calendar-alt"></i> Implementation Timeline (months)</label>
+                                <input type="number" id="timeline" placeholder="24" value="24">
+                            </div>
+                        </div>
+                        <div class="roi-results">
+                            <h3>Projected ROI</h3>
+                            <div class="roi-value" id="roiValue">285%</div>
+                            <p>Return on Investment over 3 years</p>
+                            <div class="roi-breakdown">
+                                <div class="roi-metric">
+                                    <h4>Annual Savings</h4>
+                                    <p id="annualSavings">$237,500</p>
+                                </div>
+                                <div class="roi-metric">
+                                    <h4>Payback Period</h4>
+                                    <p id="paybackPeriod">13 months</p>
+                                </div>
+                                <div class="roi-metric">
+                                    <h4>Efficiency Gain</h4>
+                                    <p id="efficiencyGain">23.8%</p>
+                                </div>
+                                <div class="roi-metric">
+                                    <h4>Cost Reduction</h4>
+                                    <p id="costReduction">15-25%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Implementation Progress Tracking</h2>
+                <div class="implementation-chart">
+                    <h3>Monthly Implementation Milestones</h3>
+                    <div class="chart-container">
+                        <div class="chart-bars">
+                            <div class="chart-bar" style="height: 20%;" data-value="20%"></div>
+                            <div class="chart-bar" style="height: 35%;" data-value="35%"></div>
+                            <div class="chart-bar" style="height: 45%;" data-value="45%"></div>
+                            <div class="chart-bar" style="height: 60%;" data-value="60%"></div>
+                            <div class="chart-bar" style="height: 70%;" data-value="70%"></div>
+                            <div class="chart-bar" style="height: 80%;" data-value="80%"></div>
+                            <div class="chart-bar" style="height: 85%;" data-value="85%"></div>
+                            <div class="chart-bar" style="height: 90%;" data-value="90%"></div>
+                            <div class="chart-bar" style="height: 95%;" data-value="95%"></div>
+                            <div class="chart-bar" style="height: 100%;" data-value="100%"></div>
+                        </div>
+                    </div>
+                    <div class="chart-labels">
+                        <div class="chart-label">Month 3</div>
+                        <div class="chart-label">Month 6</div>
+                        <div class="chart-label">Month 9</div>
+                        <div class="chart-label">Month 12</div>
+                        <div class="chart-label">Month 15</div>
+                        <div class="chart-label">Month 18</div>
+                        <div class="chart-label">Month 21</div>
+                        <div class="chart-label">Month 24</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">Risk Assessment Matrix</h2>
+                <div class="risk-matrix">
+                    <div class="risk-item high animate-in">
+                        <div class="risk-level">HIGH RISK</div>
+                        <h4>Cybersecurity Threats</h4>
+                        <p>Increased attack surface with connected devices. Mitigation: Implement robust security protocols, regular updates, and employee training.</p>
+                    </div>
+                    <div class="risk-item high animate-in">
+                        <div class="risk-level">HIGH RISK</div>
+                        <h4>Skills Gap</h4>
+                        <p>Lack of digital skills among workforce. Mitigation: Comprehensive training programs and strategic hiring.</p>
+                    </div>
+                    <div class="risk-item medium animate-in">
+                        <div class="risk-level">MEDIUM RISK</div>
+                        <h4>Integration Complexity</h4>
+                        <p>Difficulty connecting legacy systems. Mitigation: Phased approach with professional integration services.</p>
+                    </div>
+                    <div class="risk-item medium animate-in">
+                        <div class="risk-level">MEDIUM RISK</div>
+                        <h4>Data Quality Issues</h4>
+                        <p>Inconsistent or poor data quality. Mitigation: Data governance framework and validation processes.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="metrics" class="section">
+                <h2 class="section-title">Success Metrics & KPIs</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card animate-in">
+                        <div class="metric-value">25%</div>
+                        <div class="metric-label">Production Efficiency Increase</div>
+                    </div>
+                    <div class="metric-card animate-in">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Reduction in Downtime</div>
+                    </div>
+                    <div class="metric-card animate-in">
+                        <div class="metric-value">30%</div>
+                        <div class="metric-label">Quality Improvement</div>
+                    </div>
+                    <div class="metric-card animate-in">
+                        <div class="metric-value">20%</div>
+                        <div class="metric-label">Energy Cost Savings</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="roi-calculator">
+                    <h2 class="section-title" style="color: white;">Ready to Transform Your Manufacturing?</h2>
+                    <div style="text-align: center; padding: 2rem 0;">
+                        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                            Join thousands of manufacturers who have successfully implemented Industry 4.0 technologies
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                            <a href="#" class="cta-button" style="background: linear-gradient(45deg, #27ae60, #2ecc71);">
+                                <i class="fas fa-download"></i>
+                                Download Complete Guide
+                            </a>
+                            <a href="#" class="cta-button" style="background: linear-gradient(45deg, #f39c12, #f1c40f);">
+                                <i class="fas fa-calendar-check"></i>
+                                Schedule Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Industry 4.0 Roadmap</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem; line-height: 1.7;">
+                        Strategic framework for digital transformation in manufacturing
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@industry4roadmap.com"><i class="fas fa-envelope"></i> contact@industry4roadmap.com</a></li>
+                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#overview"><i class="fas fa-chevron-right"></i> Technologies</a></li>
+                        <li><a href="#roadmap"><i class="fas fa-chevron-right"></i> Implementation Roadmap</a></li>
+                        <li><a href="#roi"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
+                        <li><a href="#metrics"><i class="fas fa-chevron-right"></i> Success Metrics</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Industry 4.0 Roadmap | Business Development Analyst Project</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Enhanced ROI Calculator
+        function calculateROI() {
+            const revenue = parseFloat(document.getElementById('revenue').value) || 1000000;
+            const employees = parseFloat(document.getElementById('employees').value) || 50;
+            const investment = parseFloat(document.getElementById('investment').value) || 250000;
+            const timeline = parseFloat(document.getElementById('timeline').value) || 24;
+            
+            // Realistic savings calculations
+            const efficiencyGain = 0.238; // 23.8% average efficiency improvement
+            const costReduction = 0.18; // 18% cost reduction
+            const qualityImprovement = 0.30; // 30% quality improvement
+            const energySavings = 0.22; // 22% energy savings
+            
+            // Calculate labor savings (based on employee count and efficiency gain)
+            const avgSalary = 60000; // Average manufacturing salary
+            const laborCostSavings = (employees * avgSalary * 0.3) * efficiencyGain;
+            
+            // Calculate material savings (as percentage of revenue)
+            const materialSavings = revenue * 0.35 * costReduction;
+            
+            // Calculate energy savings
+            const energyCostPercentage = 0.06; // Energy as % of revenue
+            const energySavingsAmount = revenue * energyCostPercentage * energySavings;
+            
+            // Calculate quality savings
+            const qualityCostPercentage = 0.04; // Quality issues as % of revenue
+            const qualitySavings = revenue * qualityCostPercentage * qualityImprovement;
+            
+            // Total annual savings
+            const annualSavings = laborCostSavings + materialSavings + energySavingsAmount + qualitySavings;
+            
+            // Calculate ROI over 3 years
+            const threeYearSavings = annualSavings * 3;
+            const netProfit = threeYearSavings - investment;
+            const roi = (netProfit / investment) * 100;
+            
+            // Calculate payback period (in months)
+            const monthlySavings = annualSavings / 12;
+            let paybackPeriod = timeline;
+            
+            if (monthlySavings > 0) {
+                paybackPeriod = Math.ceil(investment / monthlySavings);
+                // Account for implementation timeline
+                if (paybackPeriod < timeline) {
+                    paybackPeriod = timeline;
+                }
+            }
+            
+            // Update display
+            document.getElementById('roiValue').textContent = Math.round(roi) + '%';
+            document.getElementById('annualSavings').textContent = '$' + Math.round(annualSavings).toLocaleString();
+            document.getElementById('paybackPeriod').textContent = paybackPeriod + ' months';
+            document.getElementById('efficiencyGain').textContent = (efficiencyGain * 100).toFixed(1) + '%';
+            document.getElementById('costReduction').textContent = (costReduction * 100).toFixed(0) + '%';
+        }
+        
+        // Add event listeners to inputs
+        document.getElementById('revenue').addEventListener('input', calculateROI);
+        document.getElementById('employees').addEventListener('input', calculateROI);
+        document.getElementById('investment').addEventListener('input', calculateROI);
+        document.getElementById('timeline').addEventListener('input', calculateROI);
+        
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }
+        
+        // Chart bar animation
+        function animateChartBars() {
+            const chartBars = document.querySelectorAll('.chart-bar');
+            chartBars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.opacity = '1';
+                    bar.style.transform = 'scaleY(1)';
+                }, index * 200);
+            });
+        }
+        
+        // Initialize chart bars
+        document.querySelectorAll('.chart-bar').forEach(bar => {
+            bar.style.opacity = '0';
+            bar.style.transform = 'scaleY(0)';
+            bar.style.transformOrigin = 'bottom';
+            bar.style.transition = 'all 0.6s ease';
+        });
+        
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            animateOnScroll();
+        });
+        
+        window.addEventListener('load', () => {
+            calculateROI();
+            animateOnScroll();
+            setTimeout(animateChartBars, 1000);
+        });
+        
+        // Add ripple effect to buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Add CSS animation for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
