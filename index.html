@@ -1,1361 +1,815 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industry 4.0 Business Transformation Roadmap</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Definitive Digital Transformation Roadmap with AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #2980b9;
-            --light: #f8fafc;
-            --dark: #1a1a1a;
-            --gray: #7f8c8d;
-            --light-gray: #f1f5f9;
-            --border: #e2e8f0;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #c0392b;
-            --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--dark);
-            background-color: var(--light);
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Lighter gray */
+            color: #1f2937; /* Darker text */
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero-bg {
+            background-color: #111827;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(240, 100%, 95%, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(240, 100%, 95%, 0.05) 0px, transparent 50%);
         }
-
-        /* Header */
-        .header {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo i {
-            color: var(--secondary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 8px 0;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10rem 0 6rem;
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a2a3a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.85;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--secondary);
-            color: white;
-            padding: 1rem 2.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
-            background: #2980b9;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        .section {
-            margin-bottom: 5rem;
-            padding: 2.5rem 0;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            color: var(--primary);
-            position: relative;
-        }
-
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -0.75rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
+            width: 4rem;
+            height: 3px;
+            border-radius: 9999px;
+            background-color: #3b82f6;
         }
-
-        /* Industry 4.0 Overview */
-        .industry-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        .tech-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2.2rem 1.8rem;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-            box-shadow: var(--box-shadow);
-            position: relative;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .accordion-content {
+            max-height: 0;
             overflow: hidden;
-            text-align: center;
+            transition: max-height 0.5s ease-in-out;
         }
-
-        .tech-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        .tab-content {
+            display: none;
         }
-
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        .tab-content.active {
+            display: block;
         }
-
-        .tech-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(52, 152, 219, 0.1);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--secondary);
-            transition: var(--transition);
+        .tab-btn.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
         }
-
-        .tech-card:hover .tech-icon {
-            background: var(--secondary);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .tech-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .tech-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Roadmap Timeline */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(to bottom, #e0e0e0, #e0e0e0);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-item:nth-child(odd) {
-            flex-direction: row;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: white;
-            padding: 2.2rem;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-            margin: 0 2rem;
-            position: relative;
-            border: 1px solid var(--border);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            content: '';
-            position: absolute;
-            right: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid white;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-right: 10px solid white;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
-
-        .timeline-marker {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            border: 3px solid var(--secondary);
-            box-shadow: 0 0 0 8px var(--light);
-        }
-
-        .timeline-item:hover .timeline-marker {
-            background: var(--secondary);
+        .timeline-marker.active {
+            background-color: #3b82f6;
             color: white;
             transform: translateX(-50%) scale(1.1);
         }
-
-        .phase-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .phase-duration {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            font-size: 0.9rem;
-            background: rgba(52, 152, 219, 0.1);
-            padding: 6px 12px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .phase-description {
-            color: var(--gray);
-            margin-bottom: 1.8rem;
-            line-height: 1.7;
-        }
-
-        .phase-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .phase-item {
-            background: var(--light-gray);
-            padding: 1.2rem;
-            border-radius: 6px;
-            border-left: 3px solid var(--secondary);
-            transition: var(--transition);
-        }
-
-        .phase-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .phase-item h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .phase-item h4 i {
-            font-size: 0.9rem;
-            color: var(--secondary);
-        }
-
-        .phase-item p {
-            font-size: 0.9rem;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* ROI Calculator */
-        .roi-calculator {
-            background: linear-gradient(135deg, var(--primary) 0%, #1a2a3a 100%);
+        .timeline-marker.active i {
             color: white;
-            padding: 4rem 2rem;
-            border-radius: 12px;
-            margin: 4rem 0;
-            box-shadow: var(--box-shadow);
         }
-
-        .roi-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .modal-overlay {
+            transition: opacity 0.3s ease;
         }
-
-        .roi-inputs {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            margin-bottom: 0.7rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .input-group input {
-            padding: 0.9rem 1.2rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.12);
-            color: white;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: var(--secondary);
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .input-group input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .roi-results {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-        }
-
-        .roi-value {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: white;
-            background: linear-gradient(45deg, #ffd700, #ffed4e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .roi-breakdown {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .roi-metric {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 1.2rem;
-            border-radius: 8px;
-        }
-
-        .roi-metric h4 {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        .roi-metric p {
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        /* Implementation Chart */
-        .implementation-chart {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--box-shadow);
-            margin: 2.5rem 0;
-            border: 1px solid var(--border);
-        }
-
-        .chart-container {
-            position: relative;
-            height: 300px;
-            margin: 2rem 0;
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: end;
-            height: 100%;
-            gap: 1.2rem;
-            padding: 0 1rem;
-        }
-
-        .chart-bar {
-            flex: 1;
-            background: linear-gradient(to top, var(--secondary), var(--accent));
-            border-radius: 4px 4px 0 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .chart-bar:hover {
-            transform: scaleY(1.05);
-            transform-origin: bottom;
-        }
-
-        .chart-bar::after {
-            content: attr(data-value);
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-
-        .chart-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1.5rem;
-            padding: 0 1rem;
-        }
-
-        .chart-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            text-align: center;
-            flex: 1;
-        }
-
-        /* Risk Matrix */
-        .risk-matrix {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .risk-item {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-            border-left: 4px solid var(--danger);
-            transition: var(--transition);
-        }
-
-        .risk-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .risk-item.medium {
-            border-left-color: var(--warning);
-        }
-
-        .risk-item.low {
-            border-left-color: var(--success);
-        }
-
-        .risk-level {
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .risk-item.high .risk-level {
-            color: var(--danger);
-            background: rgba(231, 76, 60, 0.1);
-        }
-
-        .risk-item.medium .risk-level {
-            color: var(--warning);
-            background: rgba(243, 156, 18, 0.1);
-        }
-
-        .risk-item.low .risk-level {
-            color: var(--success);
-            background: rgba(39, 174, 96, 0.1);
-        }
-
-        .risk-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-        }
-
-        .risk-item p {
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* Success Metrics */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .metric-card {
-            background: white;
-            padding: 2.2rem 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-
-        .metric-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .metric-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--secondary);
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .metric-value::after {
-            content: '+';
-            position: absolute;
-            right: -15px;
-            top: 0;
-            color: var(--success);
-            font-size: 1.8rem;
-        }
-
-        .metric-label {
-            color: var(--gray);
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 8px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .footer-links a i {
-            font-size: 0.8rem;
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .timeline-marker {
-                left: 30px;
-            }
-            
-            .timeline-content {
-                margin-left: 80px;
-                margin-right: 0;
-            }
-            
-            .timeline-content::before {
-                left: -10px;
-                border-right: 10px solid white;
-                border-left: none;
-            }
-            
-            .roi-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--secondary);
-            transform-origin: 0%;
-            transform: scaleX(0);
-            z-index: 1001;
+        .modal-content {
             transition: transform 0.3s ease;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .prose {
+            color: #374151;
+        }
+        .prose h1, .prose h2, .prose h3, .prose h4 {
+            color: #111827;
+        }
+        .prose strong {
+            color: #1f2937;
+        }
+        .prose blockquote {
+            border-left-color: #3b82f6;
         }
     </style>
 </head>
-<body>
-    <div class="scroll-progress"></div>
-    
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">
-                    <i class="fas fa-industry"></i>
-                    <span>Industry 4.0 Roadmap</span>
+<body class="bg-gray-50 text-gray-800">
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-50 transition-all duration-150" style="width: 0%;"></div>
+
+    <header id="main-header" class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex items-center gap-2 text-lg font-bold text-gray-900">
+                    <i class="ph-bold ph-rocket-launch text-blue-600 text-2xl"></i>
+                    <span>SmartFactory Roadmap</span>
                 </a>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="#overview"><i class="fas fa-layer-group"></i> Overview</a></li>
-                        <li><a href="#roadmap"><i class="fas fa-road"></i> Roadmap</a></li>
-                        <li><a href="#roi"><i class="fas fa-calculator"></i> ROI Calculator</a></li>
-                        <li><a href="#metrics"><i class="fas fa-chart-line"></i> Metrics</a></li>
-                    </ul>
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                    <a href="#outcomes" class="text-gray-600 hover:text-blue-600 transition-colors">Outcomes</a>
+                    <a href="#roadmap" class="text-gray-600 hover:text-blue-600 transition-colors">Roadmap</a>
+                    <a href="#framework" class="text-gray-600 hover:text-blue-600 transition-colors">Framework</a>
+                    <a href="#financials" class="text-gray-600 hover:text-blue-600 transition-colors">Financials</a>
+                    <a href="#kpis" class="text-gray-600 hover:text-blue-600 transition-colors">KPIs</a>
                 </nav>
+                <div class="flex items-center gap-4">
+                     <a href="#contact" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300">
+                        Get Started
+                    </a>
+                    <button id="mobile-menu-button" class="lg:hidden p-2 text-gray-800">
+                        <i id="menu-open-icon" class="ph-bold ph-list text-2xl"></i>
+                        <i id="menu-close-icon" class="ph-bold ph-x text-2xl hidden"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+        <div id="mobile-menu" class="lg:hidden bg-white absolute w-full shadow-xl transform -translate-y-[150%] -z-10 transition-transform duration-300">
+             <nav class="flex flex-col items-center gap-6 py-8">
+                <a href="#outcomes" class="font-semibold text-gray-700 hover:text-blue-600 transition-colors">Outcomes</a>
+                <a href="#roadmap" class="font-semibold text-gray-700 hover:text-blue-600 transition-colors">Roadmap</a>
+                <a href="#framework" class="font-semibold text-gray-700 hover:text-blue-600 transition-colors">Framework</a>
+                <a href="#financials" class="font-semibold text-gray-700 hover:text-blue-600 transition-colors">Financials</a>
+                <a href="#kpis" class="font-semibold text-gray-700 hover:text-blue-600 transition-colors">KPIs</a>
+                <a href="#contact" class="mt-4 px-8 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-lg">
+                    Get Started
+                </a>
+            </nav>
         </div>
     </header>
-    
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Business Development Analyst Roadmap</h1>
-                <p>Strategic framework for implementing Industry 4.0 solutions in manufacturing organizations</p>
-                <a href="#overview" class="cta-button">
-                    <i class="fas fa-arrow-right"></i>
-                    Start Your Transformation
+
+    <main>
+        <section class="hero-bg text-white pt-32 pb-20 md:pt-40 md:pb-28">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4 fade-in">Digital Adoption Roadmap: Industry 4.0</h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-300 mb-8 fade-in" style="transition-delay: 100ms;">A structured 24-month journey for small to medium manufacturers to transition to smart manufacturing, focusing on cost-effective solutions, measurable ROI, and minimal operational disruption.</p>
+                <div class="flex justify-center items-center gap-4 fade-in" style="transition-delay: 200ms;">
+                    <a href="#roadmap" class="px-6 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300">
+                        Explore the Roadmap
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="outcomes" class="py-20 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 relative">Key Business Outcomes</h2>
+                 <p class="max-w-2xl mx-auto text-center text-gray-600 mb-16">This transformation is projected to deliver tangible results across your operations.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 text-center fade-in">
+                        <p class="metric-value text-4xl font-extrabold text-blue-600 mb-2" data-target="25">0%</p>
+                        <p class="text-gray-600 font-medium">Reduction in Operational Costs</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 text-center fade-in" style="transition-delay: 100ms;">
+                        <p class="metric-value text-4xl font-extrabold text-blue-600 mb-2" data-target="20">0%</p>
+                        <p class="text-gray-600 font-medium">Improvement in Production Efficiency</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 text-center fade-in" style="transition-delay: 200ms;">
+                        <p class="metric-value text-4xl font-extrabold text-blue-600 mb-2" data-target="45">0%</p>
+                        <p class="text-gray-600 font-medium">Reduction in Unplanned Downtime</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-xl border border-gray-200 text-center fade-in" style="transition-delay: 300ms;">
+                        <div class="text-4xl font-extrabold text-blue-600 mb-2 flex items-center justify-center gap-2"><i class="ph-bold ph-arrow-up"></i><span>High</span></div>
+                        <p class="text-gray-600 font-medium">Enhanced Product Quality</p>
+                    </div>
+                </div>
+                <div class="mt-16 fade-in">
+                    <canvas id="outcomesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-24 relative">The 24-Month Transformation Roadmap</h2>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gray-200"></div>
+                    
+                    <div id="phase-1" class="phase-item relative mb-16 flex md:items-center fade-in">
+                        <div class="hidden md:flex w-1/2 justify-end pr-12">
+                            <img src="https://placehold.co/500x350/e0f2fe/0c4a6e?text=Assessment" alt="Assessment Phase" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="timeline-marker absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center z-10 transition-all duration-300">
+                            <i class="ph-bold ph-magnifying-glass text-gray-500 text-xl transition-colors"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-12 ml-4 md:ml-0">
+                             <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                                <p class="text-blue-600 font-semibold mb-2 text-sm">Months 1-3</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 1: Foundation & Assessment</h3>
+                                <p class="mb-4 text-gray-600">Conduct a comprehensive analysis of the current state to build a strategic foundation for transformation.</p>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Digital Readiness Assessment:</strong> Infrastructure audit, process mapping, and skills analysis.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Strategic Planning:</strong> Define primary/secondary goals (e.g., reduce downtime by 30%) and establish KPIs.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Budget & Resource Allocation:</strong> Develop a multi-year investment framework and explore funding sources.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="phase-2" class="phase-item relative mb-16 flex md:items-center md:flex-row-reverse fade-in">
+                        <div class="hidden md:flex w-1/2 justify-start pl-12">
+                             <img src="https://placehold.co/500x350/eef2ff/312e81?text=Foundation" alt="Foundation Phase" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="timeline-marker absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center z-10 transition-all duration-300">
+                            <i class="ph-bold ph-stack text-gray-500 text-xl transition-colors"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 ml-4 md:ml-0">
+                             <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                                <p class="text-blue-600 font-semibold mb-2 text-sm">Months 4-8</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 2: Quick Wins & Foundation</h3>
+                                <p class="mb-4 text-gray-600">Implement foundational technologies for immediate impact and to build momentum.</p>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Infrastructure Development:</strong> Deploy industrial WiFi, set up secure cloud storage, and implement cybersecurity basics.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>IoT & Basic Automation:</strong> Install sensors for temperature, vibration, and energy monitoring for early warnings and visibility.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Digital Workforce Development:</strong> Begin training on digital literacy, IoT device management, and safety protocols.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="phase-3" class="phase-item relative mb-16 flex md:items-center fade-in">
+                        <div class="hidden md:flex w-1/2 justify-end pr-12">
+                             <img src="https://placehold.co/500x350/dcfce7/14532d?text=Integration" alt="Integration Phase" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="timeline-marker absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center z-10 transition-all duration-300">
+                            <i class="ph-bold ph-plugs-connected text-gray-500 text-xl transition-colors"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-12 ml-4 md:ml-0">
+                             <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                                <p class="text-blue-600 font-semibold mb-2 text-sm">Months 9-15</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 3: Core System Integration</h3>
+                                <p class="mb-4 text-gray-600">Connect systems and deploy core digital solutions for manufacturing operations.</p>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Manufacturing Execution System (MES):</strong> Implement digital work orders, quality management, and inventory tracking.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Predictive Maintenance:</strong> Use machine learning for failure prediction and automated maintenance scheduling.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Quality Control Automation:</strong> Deploy vision systems and statistical process control for real-time quality monitoring.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="phase-4" class="phase-item relative mb-16 flex md:items-center md:flex-row-reverse fade-in">
+                        <div class="hidden md:flex w-1/2 justify-start pl-12">
+                             <img src="https://placehold.co/500x350/fffbeb/713f12?text=Optimization" alt="Optimization Phase" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="timeline-marker absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center z-10 transition-all duration-300">
+                            <i class="ph-bold ph-chart-line-up text-gray-500 text-xl transition-colors"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 ml-4 md:ml-0">
+                             <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                                <p class="text-blue-600 font-semibold mb-2 text-sm">Months 16-20</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 4: Advanced Analytics & Optimization</h3>
+                                <p class="mb-4 text-gray-600">Leverage data to optimize the entire value chain, from suppliers to customers.</p>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Data Analytics & BI:</strong> Create production dashboards, performance analytics, and predictive demand forecasting.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Supply Chain Integration:</strong> Connect with suppliers via API/EDI and implement logistics optimization.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Customer Integration:</strong> Provide real-time order tracking, digital quality certificates, and feedback loops.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="phase-5" class="phase-item relative flex md:items-center fade-in">
+                        <div class="hidden md:flex w-1/2 justify-end pr-12">
+                             <img src="https://placehold.co/500x350/fee2e2/991b1b?text=Innovation" alt="Innovation Phase" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                        </div>
+                        <div class="timeline-marker absolute left-4 md:left-1/2 -translate-x-1/2 w-10 h-10 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center z-10 transition-all duration-300">
+                            <i class="ph-bold ph-brain text-gray-500 text-xl transition-colors"></i>
+                        </div>
+                        <div class="w-full md:w-1/2 pl-12 md:pl-12 ml-4 md:ml-0">
+                             <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                                <p class="text-blue-600 font-semibold mb-2 text-sm">Months 21-24</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 5: Innovation & Scaling</h3>
+                                <p class="mb-4 text-gray-600">Embed a culture of continuous improvement and explore next-generation technologies.</p>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Advanced Technologies:</strong> Pilot AI for process optimization, Digital Twins for virtual modeling, and AR for maintenance.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Ecosystem Development:</strong> Participate in industry networks and foster innovation labs.</div></li>
+                                    <li class="flex items-start gap-2"><i class="ph-fill ph-check-circle text-blue-500 mt-1"></i><div><strong>Continuous Learning:</strong> Establish processes for ongoing technology adoption and optimization.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="framework" class="py-20 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 relative">Implementation Framework</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-8 border-b border-gray-200">
+                        <nav class="flex -mb-px" aria-label="Tabs">
+                            <button class="tab-btn w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-all duration-300 active" data-tab="tech">Technology Selection</button>
+                            <button class="tab-btn w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-all duration-300" data-tab="change">Change Management</button>
+                            <button class="tab-btn w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300 transition-all duration-300" data-tab="risk">Risk Management</button>
+                        </nav>
+                    </div>
+                    <div>
+                        <div id="tech" class="tab-content active fade-in visible">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">Technology Evaluation Matrix</h3>
+                                    <p class="text-gray-600 mb-6">A systematic approach to choosing the right tools, ensuring they align with business needs and deliver value.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-currency-dollar text-xl text-blue-600"></i><span><strong>Cost-Effectiveness:</strong> Total cost of ownership vs. benefits.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-arrows-out-line-vertical text-xl text-blue-600"></i><span><strong>Scalability:</strong> Ability to grow with the business.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-plugs-connected text-xl text-blue-600"></i><span><strong>Integration:</strong> Compatibility with existing systems.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-user text-xl text-blue-600"></i><span><strong>User-Friendliness:</strong> Ease of adoption by workforce.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-lifebuoy text-xl text-blue-600"></i><span><strong>Vendor Support:</strong> Quality of ongoing support.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                                    <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Evaluation+Criteria+Chart" alt="Tech Selection Chart" class="rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="change" class="tab-content fade-in">
+                             <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">People-Centric Change Strategy</h3>
+                                    <p class="text-gray-600 mb-6">Success hinges on workforce adoption. Our strategy focuses on communication, training, and support to manage the human side of change.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-megaphone-simple text-xl text-blue-600"></i><span><strong>Communication Plan:</strong> Regular, transparent updates.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-student text-xl text-blue-600"></i><span><strong>Training & Development:</strong> Comprehensive skill-building programs.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-trophy text-xl text-blue-600"></i><span><strong>Incentive Programs:</strong> Recognition for adoption and innovation.</span></li>
+                                        <li class="flex items-center gap-3"><i class="ph-bold ph-users-four text-xl text-blue-600"></i><span><strong>Support Systems:</strong> Help desk and peer support networks.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                                    <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Change+Management+Flow" alt="Change Management Flow" class="rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="risk" class="tab-content fade-in">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-xl font-bold mb-4">Proactive Risk Mitigation</h3>
+                                    <p class="text-gray-600 mb-6">Identifying and planning for potential challenges is key to a smooth implementation.</p>
+                                    <div class="space-y-4">
+                                        <p><strong>Key Risk Areas:</strong></p>
+                                        <ul class="flex flex-wrap gap-2 text-sm">
+                                            <li class="bg-red-100 text-red-800 px-3 py-1 rounded-full">Technology Failures</li>
+                                            <li class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Cost Overruns</li>
+                                            <li class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Operational Disruptions</li>
+                                            <li class="bg-green-100 text-green-800 px-3 py-1 rounded-full">Resistance to Change</li>
+                                        </ul>
+                                        <p class="mt-4"><strong>Mitigation Strategies:</strong></p>
+                                        <ul class="list-disc list-inside text-gray-600">
+                                            <li>Comprehensive testing before full deployment.</li>
+                                            <li>Phased, gradual implementation approach.</li>
+                                            <li>Backup systems and contingency planning.</li>
+                                        </ul>
+                                        <button id="generateRiskAnalysis" class="mt-6 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 transition-all">
+                                            <i class="ph-bold ph-sparkle"></i>
+                                            ✨ Generate Deeper Risk Analysis
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                                    <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Risk+Assessment+Grid" alt="Risk Assessment Grid" class="rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 relative">Financial Framework</h2>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <h3 class="text-xl font-bold mb-4">Investment Categories</h3>
+                        <p class="text-gray-600 mb-6">A breakdown of capital and operational expenditures required for the transformation.</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold mb-2">Capital Expenditure (CapEx)</h4>
+                                <ul class="text-sm text-gray-600 space-y-1"><li>Hardware (Sensors, etc.)</li><li>Software Licenses</li><li>Infrastructure Upgrades</li></ul>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold mb-2">Operational Expenditure (OpEx)</h4>
+                                <ul class="text-sm text-gray-600 space-y-1"><li>Training & Development</li><li>Maintenance & Support</li><li>Cloud Subscriptions</li></ul>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 100ms;">
+                        <h3 class="text-xl font-bold mb-4">Financing & ROI</h3>
+                        <p class="text-gray-600 mb-6">Explore diverse funding options and understand the potential return on your digital investment.</p>
+                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                            <h4 class="font-semibold mb-3">Potential Funding Sources</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3"><i class="ph-bold ph-bank text-xl text-blue-600"></i><span>Government grants and incentives</span></li>
+                                <li class="flex items-center gap-3"><i class="ph-bold ph-file-text text-xl text-blue-600"></i><span>Equipment financing and leasing</span></li>
+                                <li class="flex items-center gap-3"><i class="ph-bold ph-handshake text-xl text-blue-600"></i><span>Technology vendor financing programs</span></li>
+                            </ul>
+                            <div class="mt-6 pt-6 border-t border-gray-200">
+                                <h4 class="font-semibold mb-2">ROI Calculation Model</h4>
+                                <p class="text-sm text-gray-600">ROI is calculated by quantifying direct cost savings, quality improvements, and revenue enhancements against the total investment.</p>
+                                <div class="mt-2 text-center bg-blue-50 text-blue-800 p-2 rounded-lg font-mono text-sm">
+                                    (Benefits - Investment) / Investment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kpis" class="py-20 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 relative">Success Measurement & Monitoring</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg fade-in">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                                <span><i class="ph-bold ph-chart-line-up mr-2 text-blue-600"></i>Operational KPIs</span>
+                                <i class="ph-bold ph-caret-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 pt-0 text-gray-600">
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Overall Equipment Effectiveness (OEE)</li>
+                                        <li>Mean Time Between Failures (MTBF)</li>
+                                        <li>Mean Time to Repair (MTTR)</li>
+                                        <li>First Pass Yield (FPY)</li>
+                                        <li>Energy efficiency ratio</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg fade-in" style="transition-delay: 100ms;">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                                <span><i class="ph-bold ph-currency-dollar mr-2 text-blue-600"></i>Financial KPIs</span>
+                                <i class="ph-bold ph-caret-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 pt-0 text-gray-600">
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Cost per unit produced</li>
+                                        <li>Maintenance cost reduction</li>
+                                        <li>Energy cost savings</li>
+                                        <li>Revenue per employee</li>
+                                        <li>Return on digital investment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg fade-in" style="transition-delay: 200ms;">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold">
+                                <span><i class="ph-bold ph-strategy mr-2 text-blue-600"></i>Strategic KPIs</span>
+                                <i class="ph-bold ph-caret-down transition-transform"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-5 pt-0 text-gray-600">
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li>Digital maturity score</li>
+                                        <li>Employee digital competency</li>
+                                        <li>Customer satisfaction index</li>
+                                        <li>Innovation pipeline strength</li>
+                                        <li>Market competitiveness rating</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center bg-white p-8 rounded-xl border border-gray-200 fade-in">
+                        <h3 class="text-xl font-bold mb-4">Continuous Improvement Process</h3>
+                        <p class="text-gray-600 mb-6">Success is not a destination, but a continuous cycle of review, assessment, and optimization.</p>
+                        <img src="https://placehold.co/600x200/f3f4f6/1f2937?text=Monthly+Reviews+→+Quarterly+Assessments+→+Annual+Evaluations" alt="Continuous Improvement Cycle" class="rounded-lg mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ai-advisor" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 relative">✨ AI Strategic Advisor</h2>
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl border border-gray-200 fade-in">
+                    <p class="text-center text-gray-600 mb-6">Get personalized strategic recommendations for your business. Tell us about your company, and our AI advisor will suggest a starting point on your transformation journey.</p>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="industry" class="block text-sm font-medium text-gray-700">Your Industry</label>
+                            <input type="text" id="industry" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Automotive Parts">
+                        </div>
+                        <div>
+                            <label for="goal" class="block text-sm font-medium text-gray-700">Primary Goal</label>
+                            <input type="text" id="goal" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Reduce Costs">
+                        </div>
+                    </div>
+                    <button id="generateRecommendations" class="w-full flex justify-center items-center gap-2 px-4 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700 transition-all">
+                        Generate Custom Recommendations
+                    </button>
+                    <div id="recommendations-result" class="mt-8 prose prose-blue max-w-none"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="hero-bg py-20 md:py-24">
+            <div class="container mx-auto px-4 text-center fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Begin Your Transformation Today</h2>
+                <p class="max-w-2xl mx-auto text-lg text-gray-300 mb-8">The future of manufacturing is digital. Companies that embrace this transformation will be the industry leaders of tomorrow. Take the first step with a comprehensive readiness assessment.</p>
+                <a href="#" class="inline-block px-8 py-4 text-lg font-semibold text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300">
+                    Schedule a Free Consultation
                 </a>
             </div>
-        </div>
-    </section>
-    
-    <main class="main-content">
-        <div class="container">
-            <section id="overview" class="section">
-                <h2 class="section-title">Industry 4.0 Core Technologies</h2>
-                <div class="industry-overview">
-                    <div class="tech-card animate-in">
-                        <div class="tech-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3>IoT & Smart Sensors</h3>
-                        <p>Connected devices and sensors that collect real-time data from manufacturing processes, enabling predictive maintenance and quality control.</p>
-                    </div>
-                    <div class="tech-card animate-in">
-                        <div class="tech-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h3>Data Analytics</h3>
-                        <p>Advanced analytics and machine learning algorithms that transform raw data into actionable insights for operational efficiency.</p>
-                    </div>
-                    <div class="tech-card animate-in">
-                        <div class="tech-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Cloud Computing</h3>
-                        <p>Scalable cloud infrastructure providing secure data storage, processing power, and accessibility from anywhere.</p>
-                    </div>
-                    <div class="tech-card animate-in">
-                        <div class="tech-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Automation</h3>
-                        <p>Robotic process automation and smart manufacturing systems that reduce manual labor and improve precision.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="roadmap" class="section">
-                <h2 class="section-title">Digital Adoption Roadmap</h2>
-                <div class="timeline">
-                    <div class="timeline-item animate-in">
-                        <div class="timeline-marker">1</div>
-                        <div class="timeline-content">
-                            <h3 class="phase-title"><i class="fas fa-search"></i> Assessment & Planning</h3>
-                            <p class="phase-duration">Months 1-2</p>
-                            <p class="phase-description">Evaluate current state, identify opportunities, and create a comprehensive digital transformation strategy.</p>
-                            <div class="phase-items">
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-clipboard-list"></i> Current State Analysis</h4>
-                                    <p>Audit existing systems, processes, and technologies</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-bullseye"></i> Goal Setting</h4>
-                                    <p>Define clear objectives and success metrics</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-money-bill-wave"></i> Budget Planning</h4>
-                                    <p>Establish investment requirements and ROI targets</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item animate-in">
-                        <div class="timeline-marker">2</div>
-                        <div class="timeline-content">
-                            <h3 class="phase-title"><i class="fas fa-layer-group"></i> Foundation Building</h3>
-                            <p class="phase-duration">Months 3-6</p>
-                            <p class="phase-description">Establish the basic infrastructure and connectivity required for digital transformation.</p>
-                            <div class="phase-items">
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-network-wired"></i> Network Infrastructure</h4>
-                                    <p>Upgrade internet connectivity and internal networks</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-satellite"></i> Basic IoT Implementation</h4>
-                                    <p>Install sensors on critical equipment</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-database"></i> Data Collection Setup</h4>
-                                    <p>Implement systems to capture operational data</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item animate-in">
-                        <div class="timeline-marker">3</div>
-                        <div class="timeline-content">
-                            <h3 class="phase-title"><i class="fas fa-link"></i> System Integration</h3>
-                            <p class="phase-duration">Months 7-12</p>
-                            <p class="phase-description">Connect systems and implement core digital solutions for manufacturing operations.</p>
-                            <div class="phase-items">
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-cogs"></i> ERP Integration</h4>
-                                    <p>Connect production data with business systems</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-chart-pie"></i> Analytics Platform</h4>
-                                    <p>Deploy basic analytics and reporting tools</p>
-                                </div>
-                                <div class="phase-item">
-                                    <h4><i class="fas fa-mobile-alt"></i> Mobile Access</h4>
-                                    <p>Enable mobile monitoring and control</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="roi" class="section">
-                <div class="roi-calculator">
-                    <h2 class="section-title" style="color: white;">ROI Calculator</h2>
-                    <div class="roi-grid">
-                        <div class="roi-inputs">
-                            <div class="input-group">
-                                <label for="revenue"><i class="fas fa-dollar-sign"></i> Annual Revenue ($)</label>
-                                <input type="number" id="revenue" placeholder="1000000" value="1000000">
-                            </div>
-                            <div class="input-group">
-                                <label for="employees"><i class="fas fa-users"></i> Number of Employees</label>
-                                <input type="number" id="employees" placeholder="50" value="50">
-                            </div>
-                            <div class="input-group">
-                                <label for="investment"><i class="fas fa-money-check-alt"></i> Digital Investment ($)</label>
-                                <input type="number" id="investment" placeholder="250000" value="250000">
-                            </div>
-                            <div class="input-group">
-                                <label for="timeline"><i class="fas fa-calendar-alt"></i> Implementation Timeline (months)</label>
-                                <input type="number" id="timeline" placeholder="24" value="24">
-                            </div>
-                        </div>
-                        <div class="roi-results">
-                            <h3>Projected ROI</h3>
-                            <div class="roi-value" id="roiValue">285%</div>
-                            <p>Return on Investment over 3 years</p>
-                            <div class="roi-breakdown">
-                                <div class="roi-metric">
-                                    <h4>Annual Savings</h4>
-                                    <p id="annualSavings">$237,500</p>
-                                </div>
-                                <div class="roi-metric">
-                                    <h4>Payback Period</h4>
-                                    <p id="paybackPeriod">13 months</p>
-                                </div>
-                                <div class="roi-metric">
-                                    <h4>Efficiency Gain</h4>
-                                    <p id="efficiencyGain">23.8%</p>
-                                </div>
-                                <div class="roi-metric">
-                                    <h4>Cost Reduction</h4>
-                                    <p id="costReduction">15-25%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Implementation Progress Tracking</h2>
-                <div class="implementation-chart">
-                    <h3>Monthly Implementation Milestones</h3>
-                    <div class="chart-container">
-                        <div class="chart-bars">
-                            <div class="chart-bar" style="height: 20%;" data-value="20%"></div>
-                            <div class="chart-bar" style="height: 35%;" data-value="35%"></div>
-                            <div class="chart-bar" style="height: 45%;" data-value="45%"></div>
-                            <div class="chart-bar" style="height: 60%;" data-value="60%"></div>
-                            <div class="chart-bar" style="height: 70%;" data-value="70%"></div>
-                            <div class="chart-bar" style="height: 80%;" data-value="80%"></div>
-                            <div class="chart-bar" style="height: 85%;" data-value="85%"></div>
-                            <div class="chart-bar" style="height: 90%;" data-value="90%"></div>
-                            <div class="chart-bar" style="height: 95%;" data-value="95%"></div>
-                            <div class="chart-bar" style="height: 100%;" data-value="100%"></div>
-                        </div>
-                    </div>
-                    <div class="chart-labels">
-                        <div class="chart-label">Month 3</div>
-                        <div class="chart-label">Month 6</div>
-                        <div class="chart-label">Month 9</div>
-                        <div class="chart-label">Month 12</div>
-                        <div class="chart-label">Month 15</div>
-                        <div class="chart-label">Month 18</div>
-                        <div class="chart-label">Month 21</div>
-                        <div class="chart-label">Month 24</div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">Risk Assessment Matrix</h2>
-                <div class="risk-matrix">
-                    <div class="risk-item high animate-in">
-                        <div class="risk-level">HIGH RISK</div>
-                        <h4>Cybersecurity Threats</h4>
-                        <p>Increased attack surface with connected devices. Mitigation: Implement robust security protocols, regular updates, and employee training.</p>
-                    </div>
-                    <div class="risk-item high animate-in">
-                        <div class="risk-level">HIGH RISK</div>
-                        <h4>Skills Gap</h4>
-                        <p>Lack of digital skills among workforce. Mitigation: Comprehensive training programs and strategic hiring.</p>
-                    </div>
-                    <div class="risk-item medium animate-in">
-                        <div class="risk-level">MEDIUM RISK</div>
-                        <h4>Integration Complexity</h4>
-                        <p>Difficulty connecting legacy systems. Mitigation: Phased approach with professional integration services.</p>
-                    </div>
-                    <div class="risk-item medium animate-in">
-                        <div class="risk-level">MEDIUM RISK</div>
-                        <h4>Data Quality Issues</h4>
-                        <p>Inconsistent or poor data quality. Mitigation: Data governance framework and validation processes.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="metrics" class="section">
-                <h2 class="section-title">Success Metrics & KPIs</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card animate-in">
-                        <div class="metric-value">25%</div>
-                        <div class="metric-label">Production Efficiency Increase</div>
-                    </div>
-                    <div class="metric-card animate-in">
-                        <div class="metric-value">40%</div>
-                        <div class="metric-label">Reduction in Downtime</div>
-                    </div>
-                    <div class="metric-card animate-in">
-                        <div class="metric-value">30%</div>
-                        <div class="metric-label">Quality Improvement</div>
-                    </div>
-                    <div class="metric-card animate-in">
-                        <div class="metric-value">20%</div>
-                        <div class="metric-label">Energy Cost Savings</div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <div class="roi-calculator">
-                    <h2 class="section-title" style="color: white;">Ready to Transform Your Manufacturing?</h2>
-                    <div style="text-align: center; padding: 2rem 0;">
-                        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-                            Join thousands of manufacturers who have successfully implemented Industry 4.0 technologies
-                        </p>
-                        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                            <a href="#" class="cta-button" style="background: linear-gradient(45deg, #27ae60, #2ecc71);">
-                                <i class="fas fa-download"></i>
-                                Download Complete Guide
-                            </a>
-                            <a href="#" class="cta-button" style="background: linear-gradient(45deg, #f39c12, #f1c40f);">
-                                <i class="fas fa-calendar-check"></i>
-                                Schedule Consultation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        </section>
     </main>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Industry 4.0 Roadmap</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem; line-height: 1.7;">
-                        Strategic framework for digital transformation in manufacturing
-                    </p>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="mailto:contact@industry4roadmap.com"><i class="fas fa-envelope"></i> contact@industry4roadmap.com</a></li>
-                        <li><a href="tel:+15551234567"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#overview"><i class="fas fa-chevron-right"></i> Technologies</a></li>
-                        <li><a href="#roadmap"><i class="fas fa-chevron-right"></i> Implementation Roadmap</a></li>
-                        <li><a href="#roi"><i class="fas fa-chevron-right"></i> ROI Calculator</a></li>
-                        <li><a href="#metrics"><i class="fas fa-chevron-right"></i> Success Metrics</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Industry 4.0 Roadmap | Business Development Analyst Project</p>
-                <p>Designed and Developed by Ashish Kumar with ❤️</p>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="text-center">
+                <p class="text-gray-400">&copy; 2025 SmartFactory Roadmap. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    
+
+    <!-- AI Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="modal-overlay fixed inset-0 bg-black/50 opacity-0" id="modal-overlay"></div>
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] transform scale-95" id="modal-content-box">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-semibold text-gray-900">✨ AI-Generated Analysis</h3>
+                <button id="close-modal" class="p-1 rounded-full hover:bg-gray-200"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto prose max-w-none" id="modal-body" style="max-height: calc(90vh - 120px);">
+                <!-- Content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+
     <script>
-        // Enhanced ROI Calculator
-        function calculateROI() {
-            const revenue = parseFloat(document.getElementById('revenue').value) || 1000000;
-            const employees = parseFloat(document.getElementById('employees').value) || 50;
-            const investment = parseFloat(document.getElementById('investment').value) || 250000;
-            const timeline = parseFloat(document.getElementById('timeline').value) || 24;
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- General UI & Navigation ---
+            const header = document.getElementById('main-header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-md', window.scrollY > 50);
+            });
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.contains('translate-y-0');
+                mobileMenu.classList.toggle('translate-y-0', !isExpanded);
+                mobileMenu.classList.toggle('-translate-y-[150%]', isExpanded);
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+            });
             
-            // Realistic savings calculations
-            const efficiencyGain = 0.238; // 23.8% average efficiency improvement
-            const costReduction = 0.18; // 18% cost reduction
-            const qualityImprovement = 0.30; // 30% quality improvement
-            const energySavings = 0.22; // 22% energy savings
-            
-            // Calculate labor savings (based on employee count and efficiency gain)
-            const avgSalary = 60000; // Average manufacturing salary
-            const laborCostSavings = (employees * avgSalary * 0.3) * efficiencyGain;
-            
-            // Calculate material savings (as percentage of revenue)
-            const materialSavings = revenue * 0.35 * costReduction;
-            
-            // Calculate energy savings
-            const energyCostPercentage = 0.06; // Energy as % of revenue
-            const energySavingsAmount = revenue * energyCostPercentage * energySavings;
-            
-            // Calculate quality savings
-            const qualityCostPercentage = 0.04; // Quality issues as % of revenue
-            const qualitySavings = revenue * qualityCostPercentage * qualityImprovement;
-            
-            // Total annual savings
-            const annualSavings = laborCostSavings + materialSavings + energySavingsAmount + qualitySavings;
-            
-            // Calculate ROI over 3 years
-            const threeYearSavings = annualSavings * 3;
-            const netProfit = threeYearSavings - investment;
-            const roi = (netProfit / investment) * 100;
-            
-            // Calculate payback period (in months)
-            const monthlySavings = annualSavings / 12;
-            let paybackPeriod = timeline;
-            
-            if (monthlySavings > 0) {
-                paybackPeriod = Math.ceil(investment / monthlySavings);
-                // Account for implementation timeline
-                if (paybackPeriod < timeline) {
-                    paybackPeriod = timeline;
-                }
+            document.querySelectorAll('#mobile-menu a, #main-header nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('translate-y-0')) {
+                        mobileMenuButton.click();
+                    }
+                });
+            });
+
+            const scrollProgress = document.getElementById('scroll-progress');
+            function updateScrollProgress() {
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                scrollProgress.style.width = `${scrollPercent}%`;
             }
+            window.addEventListener('scroll', updateScrollProgress);
             
-            // Update display
-            document.getElementById('roiValue').textContent = Math.round(roi) + '%';
-            document.getElementById('annualSavings').textContent = '$' + Math.round(annualSavings).toLocaleString();
-            document.getElementById('paybackPeriod').textContent = paybackPeriod + ' months';
-            document.getElementById('efficiencyGain').textContent = (efficiencyGain * 100).toFixed(1) + '%';
-            document.getElementById('costReduction').textContent = (costReduction * 100).toFixed(0) + '%';
-        }
-        
-        // Add event listeners to inputs
-        document.getElementById('revenue').addEventListener('input', calculateROI);
-        document.getElementById('employees').addEventListener('input', calculateROI);
-        document.getElementById('investment').addEventListener('input', calculateROI);
-        document.getElementById('timeline').addEventListener('input', calculateROI);
-        
-        // Scroll progress indicator
-        function updateScrollProgress() {
-            const scrollProgress = document.querySelector('.scroll-progress');
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
-            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
-        }
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+            // --- Intersection Observer for Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        const metricValue = entry.target.querySelector('.metric-value');
+                        if (metricValue && !metricValue.classList.contains('counted')) {
+                             metricValue.classList.add('counted');
+                             const target = +metricValue.getAttribute('data-target');
+                             let current = 0;
+                             const duration = 2000;
+                             const stepTime = Math.abs(Math.floor(duration / target));
+                             const timer = setInterval(() => {
+                                 current += 1;
+                                 metricValue.innerText = current + '%';
+                                 if (current == target) {
+                                     clearInterval(timer);
+                                 }
+                             }, stepTime);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // --- Accordion ---
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.ph-caret-down');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                        document.querySelectorAll('.accordion-header .ph-caret-down').forEach(i => i.style.transform = 'rotate(0deg)');
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // --- Tabs ---
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const tabId = button.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        content.classList.toggle('active', content.id === tabId);
+                        if (content.id === tabId) {
+                            content.classList.add('visible');
+                        } else {
+                            content.classList.remove('visible');
+                        }
                     });
+                });
+            });
+
+            // --- Timeline Scroll Highlighting ---
+            const phaseItems = document.querySelectorAll('.phase-item');
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const marker = entry.target.querySelector('.timeline-marker');
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        marker.classList.add('active');
+                    } else {
+                        marker.classList.remove('active');
+                    }
+                });
+            }, { threshold: 0.5 });
+            phaseItems.forEach(item => timelineObserver.observe(item));
+
+            // --- Chart.js Visualizations ---
+            const outcomesChartCtx = document.getElementById('outcomesChart').getContext('2d');
+            new Chart(outcomesChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Op. Cost Reduction', 'Efficiency Improvement', 'Downtime Reduction'],
+                    datasets: [{
+                        label: 'Projected Improvement (%)',
+                        data: [25, 20, 45],
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false }, title: { display: true, text: 'Key Outcome Projections' } },
+                    scales: { y: { beginAtZero: true, max: 50 } }
                 }
             });
-        });
-        
-        // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate-in');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.animation = 'fadeInUp 0.6s ease-out forwards';
+
+            const investmentChartCtx = document.getElementById('investmentChart').getContext('2d');
+            new Chart(investmentChartCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Capital Expenditure (CapEx)', 'Operational Expenditure (OpEx)'],
+                    datasets: [{
+                        data: [65, 35],
+                        backgroundColor: ['rgba(59, 130, 246, 0.7)', 'rgba(107, 114, 128, 0.5)'],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'top' }, title: { display: true, text: 'Estimated Investment Split' } }
                 }
             });
-        }
-        
-        // Chart bar animation
-        function animateChartBars() {
-            const chartBars = document.querySelectorAll('.chart-bar');
-            chartBars.forEach((bar, index) => {
+
+            // --- Gemini API Integration ---
+            const modal = document.getElementById('ai-modal');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const closeModalBtn = document.getElementById('close-modal');
+            const modalBody = document.getElementById('modal-body');
+
+            function showModal() {
+                modal.classList.remove('hidden');
                 setTimeout(() => {
-                    bar.style.opacity = '1';
-                    bar.style.transform = 'scaleY(1)';
-                }, index * 200);
+                    modalOverlay.classList.remove('opacity-0');
+                    document.getElementById('modal-content-box').classList.remove('scale-95');
+                }, 10);
+            }
+
+            function hideModal() {
+                modalOverlay.classList.add('opacity-0');
+                document.getElementById('modal-content-box').classList.add('scale-95');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+
+            closeModalBtn.addEventListener('click', hideModal);
+            modalOverlay.addEventListener('click', hideModal);
+
+            const riskButton = document.getElementById('generateRiskAnalysis');
+            riskButton.addEventListener('click', async () => {
+                modalBody.innerHTML = '<div class="flex justify-center items-center h-40"><div class="loader"></div></div>';
+                showModal();
+                
+                const prompt = `You are an expert business transformation consultant. Your response must be only the requested information in markdown format. Do not include any conversational filler, greetings, or summaries.
+                
+                Provide a detailed risk analysis for an Industry 4.0 transformation at a small-to-medium manufacturing company. Elaborate on these key risk areas: Technology, Financial, Operational, and People.
+                
+                For each area:
+                1. Use a heading for the risk area.
+                2. Provide 2-3 specific, numbered examples of risks.
+                3. For each risk example, provide a detailed, actionable mitigation strategy.`;
+
+                try {
+                    const resultText = await callGemini(prompt);
+                    modalBody.innerHTML = marked.parse(resultText);
+                } catch (error) {
+                    modalBody.innerHTML = `<p class="text-red-500">Error generating analysis. Please try again later.</p><p class="text-xs text-gray-500 mt-2">${error}</p>`;
+                }
             });
-        }
-        
-        // Initialize chart bars
-        document.querySelectorAll('.chart-bar').forEach(bar => {
-            bar.style.opacity = '0';
-            bar.style.transform = 'scaleY(0)';
-            bar.style.transformOrigin = 'bottom';
-            bar.style.transition = 'all 0.6s ease';
-        });
-        
-        // Event listeners
-        window.addEventListener('scroll', () => {
-            updateScrollProgress();
-            animateOnScroll();
-        });
-        
-        window.addEventListener('load', () => {
-            calculateROI();
-            animateOnScroll();
-            setTimeout(animateChartBars, 1000);
-        });
-        
-        // Add ripple effect to buttons
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
+
+            const recommendationsButton = document.getElementById('generateRecommendations');
+            const recommendationsResultDiv = document.getElementById('recommendations-result');
+            recommendationsButton.addEventListener('click', async () => {
+                const industry = document.getElementById('industry').value;
+                const goal = document.getElementById('goal').value;
+
+                if (!industry || !goal) {
+                    recommendationsResultDiv.innerHTML = '<p class="text-red-500 text-center">Please fill out both your industry and primary goal.</p>';
+                    return;
+                }
+
+                recommendationsResultDiv.innerHTML = '<div class="flex justify-center items-center h-40"><div class="loader"></div></div>';
+
+                const prompt = `You are an expert Industry 4.0 strategist. Your response must be only the requested information in markdown format. Do not include any conversational filler, greetings, or summaries.
                 
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.style.position = 'absolute';
-                ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-                ripple.style.transform = 'scale(0)';
-                ripple.style.animation = 'ripple 0.6s linear';
-                ripple.style.pointerEvents = 'none';
+                A small manufacturing company in the "${industry}" industry has a primary goal to "${goal}". Based on the 5-phase digital transformation roadmap, provide 3-5 tailored, actionable recommendations.
                 
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
+                For each recommendation:
+                1. Use a heading for the recommendation.
+                2. Specify which roadmap phase it aligns with.
+                3. Explain why it is critical for achieving their specific goal in their industry.`;
+
+                try {
+                    const resultText = await callGemini(prompt);
+                    recommendationsResultDiv.innerHTML = marked.parse(resultText);
+                } catch (error) {
+                    recommendationsResultDiv.innerHTML = `<p class="text-red-500 text-center">Error generating recommendations. Please try again later.</p><p class="text-xs text-gray-500 mt-2">${error}</p>`;
+                }
             });
-        });
-        
-        // Add CSS animation for ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
+
+            async function callGemini(prompt) {
+                // The API key is handled by the execution environment.
+                // In a real-world scenario, this would be managed via environment variables on a server.
+                const apiKey = "AIzaSyDYlCvMjdG4Yt7IZ4lZDN6ZXSv_cKCm5TA"; 
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const payload = {
+                    contents: [{
+                        parts: [{ text: prompt }]
+                    }]
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorBody = await response.json();
+                    throw new Error(`API Error: ${response.status} ${response.statusText} - ${errorBody.error.message}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    throw new Error("Invalid response structure from API.");
                 }
             }
-        `;
-        document.head.appendChild(style);
+        });
     </script>
 </body>
 </html>
